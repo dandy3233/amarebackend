@@ -150,6 +150,12 @@ JAZZMIN_SETTINGS ={
         'home.HeroSection': 'fas fa-star', 
         'home.FeatureSection': 'fas fa-trophy',
         "home.AppSection": "fas fa-mobile-alt", 
+        "home.Blog": "fas fa-blog",           # Icon for the Blog model
+        "home.Service": "fas fa-concierge-bell",  # Icon for the Service model
+        # "home.Contact": "fas fa-envelope", 
+        "home.CardDeal": "fas fa-flag", 
+        "auth.User": "fas fa-user",           # Icon for the User model
+        "auth.Group": "fas fa-users", 
     },
 }
 JAZZMIN_UI_TWEAKS = {
