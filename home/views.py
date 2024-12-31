@@ -44,7 +44,7 @@ class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ServiceListView(generics.ListCreateAPIView):
-    queryset = Service.objects.all().order_by('-id')[:4]
+    queryset = Service.objects.all().order_by('-id')[:6]
     serializer_class = ServiceSerializer
 
 class ServiceDetailView(generics.RetrieveUpdateDestroyAPIView):

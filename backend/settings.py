@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-%a26mvh%1u444bii^a%d+x+7r7=(*-#7k1-x3tji#0fcb2=-qf
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -44,6 +42,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'tinymce',
+    'settings',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -89,25 +88,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -120,7 +121,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -132,30 +132,29 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-JAZZMIN_SETTINGS ={
-    'site_title':"Title Of Site",
-    'site_header':"Hader Of Site",
-    'site_brand':"Brand Of Site",
-    'welcome_sign':"Wellcome to CMS",
-    'copyright':"Classiy",
-    'show_ui_builder':True,
-        'icons': {
-        'auth': 'fas fa-user', 
-        'home.CompanyStatus': 'fas fa-tachometer-alt', 
-        'home.HeroSection': 'fas fa-star', 
+JAZZMIN_SETTINGS = {
+    'site_title': "Title Of Site",
+    'site_header': "Hader Of Site",
+    'site_brand': "Brand Of Site",
+    'welcome_sign': "Wellcome to CMS",
+    'copyright': "Classiy",
+    'show_ui_builder': True,
+    'icons': {
+        'auth': 'fas fa-user',
+        'home.CompanyStatus': 'fas fa-tachometer-alt',
+        'home.HeroSection': 'fas fa-star',
         'home.FeatureSection': 'fas fa-trophy',
-        "home.AppSection": "fas fa-mobile-alt", 
-        "home.Blog": "fas fa-blog",           # Icon for the Blog model
+        "home.AppSection": "fas fa-mobile-alt",
+        "home.Blog": "fas fa-blog",  # Icon for the Blog model
         "home.Service": "fas fa-concierge-bell",  # Icon for the Service model
-        # "home.Contact": "fas fa-envelope", 
-        "home.CardDeal": "fas fa-flag", 
-        "auth.User": "fas fa-user",           # Icon for the User model
-        "auth.Group": "fas fa-users", 
+        # "home.Contact": "fas fa-envelope",
+        "home.CardDeal": "fas fa-flag",
+        "auth.User": "fas fa-user",  # Icon for the User model
+        "auth.Group": "fas fa-users",
     },
 }
 JAZZMIN_UI_TWEAKS = {
